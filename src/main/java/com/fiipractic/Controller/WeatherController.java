@@ -1,5 +1,7 @@
 package com.fiipractic.Controller;
 
+import com.fiipractic.DTO.LocationDTO;
+import com.fiipractic.DTO.WeatherApiResponse;
 import com.fiipractic.Service.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,8 +20,8 @@ public class WeatherController {
     }
 
     @GetMapping("/details")
-    public String getWeatherByLatAndLot(@RequestParam double lat, @RequestParam double lon) {
-        return weatherService.getWeatherByLatAndLot(lat, lon);
+    public WeatherApiResponse getWeatherByLatAndLot(@RequestParam double lat, @RequestParam double lon) {
+        return weatherService.getWeatherByLatAndLon(lat, lon);
     }
 
 
