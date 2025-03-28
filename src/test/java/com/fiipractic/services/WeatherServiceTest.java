@@ -5,17 +5,19 @@ import com.fiipractic.DTO.CurrentDTO;
 import com.fiipractic.DTO.LocationDTO;
 import com.fiipractic.DTO.WeatherApiResponse;
 import com.fiipractic.Service.WeatherService;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -56,5 +58,21 @@ public class WeatherServiceTest {
         assertNotNull(result);
         assertEquals("San Francisco", result.getLocationDTO().name());
     }
+
+    @Test
+    void givenInvalidCoordinates_whenGetWeatherByLatAndLon_thenReturnsWeatherApiResponse() {
+        double lat = 37.7749;
+        double lon = 124352.34;
+
+        when(restTemplate.getForObject(anyString(), eq(WeatherApiResponse.class)))
+                .thenThrow(new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Invalid request"));
+
+        RuntimeException thrown = Assertions.assertThrows(
+                RuntimeException.class, () -> weatherService.getWeatherByLatAndLon(lat, lon)
+        );
+
+        Assertions.assertTrue(thrown.getMessage().contains("Api request fail in getWeatherByLatAndLon"));
+    }
+
 
 }
