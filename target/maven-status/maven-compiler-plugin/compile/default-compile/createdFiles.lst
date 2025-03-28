@@ -1,1 +1,7 @@
+com/fiipractic/DTO/CurrentDTO.class
+com/fiipractic/DTO/LocationDTO.class
+com/fiipractic/Controller/WeatherController.class
 com/fiipractic/FiipracticApplication.class
+com/fiipractic/DTO/ConditionDTO.class
+com/fiipractic/DTO/WeatherApiResponse.class
+com/fiipractic/Service/WeatherService.class

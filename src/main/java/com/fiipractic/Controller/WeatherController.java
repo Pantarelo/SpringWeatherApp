@@ -1,6 +1,5 @@
 package com.fiipractic.Controller;
 
-import com.fiipractic.DTO.LocationDTO;
 import com.fiipractic.DTO.WeatherApiResponse;
 import com.fiipractic.Service.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;

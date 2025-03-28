@@ -1,1 +1,7 @@
+/Users/pantarelo/Desktop/fiipractic/src/main/java/com/fiipractic/Controller/WeatherController.java
+/Users/pantarelo/Desktop/fiipractic/src/main/java/com/fiipractic/DTO/ConditionDTO.java
+/Users/pantarelo/Desktop/fiipractic/src/main/java/com/fiipractic/DTO/CurrentDTO.java
+/Users/pantarelo/Desktop/fiipractic/src/main/java/com/fiipractic/DTO/LocationDTO.java
+/Users/pantarelo/Desktop/fiipractic/src/main/java/com/fiipractic/DTO/WeatherApiResponse.java
 /Users/pantarelo/Desktop/fiipractic/src/main/java/com/fiipractic/FiipracticApplication.java
+/Users/pantarelo/Desktop/fiipractic/src/main/java/com/fiipractic/Service/WeatherService.java
