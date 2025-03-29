@@ -1,6 +1,5 @@
 package com.fiipractic.services;
 
-import com.fiipractic.DTO.ConditionDTO;
 import com.fiipractic.DTO.CurrentDTO;
 import com.fiipractic.DTO.LocationDTO;
 import com.fiipractic.DTO.WeatherApiResponse;

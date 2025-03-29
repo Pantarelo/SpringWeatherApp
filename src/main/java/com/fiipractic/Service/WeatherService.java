@@ -1,6 +1,5 @@
 package com.fiipractic.Service;
 
-import com.fiipractic.DTO.LocationDTO;
 import com.fiipractic.DTO.WeatherApiResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

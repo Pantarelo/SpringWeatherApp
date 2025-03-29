@@ -1,7 +1,6 @@
 package com.fiipractic.controllers;
 
 import com.fiipractic.Controller.WeatherController;
-import com.fiipractic.DTO.ConditionDTO;
 import com.fiipractic.DTO.CurrentDTO;
 import com.fiipractic.DTO.LocationDTO;
 import com.fiipractic.DTO.WeatherApiResponse;
