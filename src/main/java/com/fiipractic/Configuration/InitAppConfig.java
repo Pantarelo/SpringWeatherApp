@@ -4,12 +4,13 @@ import com.fiipractic.service.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.client.RestTemplate;
 
 @Configuration
-public class AppConfig {
+public class InitAppConfig {
     @Bean
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
+    CommandLineRunner initUser(UserService userService) {
+        return args -> {
+            userService.createUser("Andrei", "AndreiSeJoaca34", "password123");
+        };
     }
 }

@@ -1,6 +1,7 @@
 package com.fiipractic.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
 import java.util.Set;
 
@@ -11,6 +12,7 @@ public class User {
     @Column(nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
 
     @Column(nullable = false)
     private String name;
@@ -26,4 +28,29 @@ public class User {
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private Set<RequestHistory> requestHistories;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
 }

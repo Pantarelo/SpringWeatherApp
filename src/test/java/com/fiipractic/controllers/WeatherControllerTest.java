@@ -1,10 +1,10 @@
 package com.fiipractic.controllers;
 
-import com.fiipractic.Controller.WeatherController;
+import com.fiipractic.controller.WeatherController;
 import com.fiipractic.DTO.CurrentDTO;
 import com.fiipractic.DTO.LocationDTO;
 import com.fiipractic.DTO.WeatherApiResponse;
-import com.fiipractic.Service.WeatherService;
+import com.fiipractic.service.WeatherService;
 import com.fiipractic.configurationTest.TestConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,18 +32,11 @@ public class WeatherControllerTest {
 
         LocationDTO mockLocation = new LocationDTO(
                 "San Francisco", "California", "USA",
-                lat, lon, "America/Los_Angeles",
-                1672531199L, "2024-03-27 12:00"
+                "America/Los_Angeles"
         );
 
         CurrentDTO mockCurrent = new CurrentDTO(
-                1672531199L, "2024-03-27 12:00", 20.0, 68.0,
-                true, new ConditionDTO("Sunny", "sunny.png", 1000),
-                10.0, 16.0, 180, "S",
-                1013.0, 29.91, 0.0, 0.0, 60,
-                20, 21.0, 69.8, 21.0, 69.8,
-                22.0, 71.6, 10.0, 50.0,
-                9.9, 6.2, 5.0, 15.0, 24.0
+                20.0, 16.0, "S", 0.0
         );
 
         WeatherApiResponse mockResponse = new WeatherApiResponse(mockLocation, mockCurrent);

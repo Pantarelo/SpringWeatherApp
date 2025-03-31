@@ -1,4 +1,4 @@
-package com.fiipractic.Service;
+package com.fiipractic.service;
 
 import com.fiipractic.DTO.WeatherApiResponse;
 import org.springframework.beans.factory.annotation.Value;

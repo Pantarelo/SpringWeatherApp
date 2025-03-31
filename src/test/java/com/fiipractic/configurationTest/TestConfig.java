@@ -1,6 +1,6 @@
 package com.fiipractic.configurationTest;
 
-import com.fiipractic.Service.WeatherService;
+import com.fiipractic.service.WeatherService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
