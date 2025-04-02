@@ -54,6 +54,9 @@ public class UserProfileService {
 
     @Transactional
     public UserProfile updateUserProfile1(Long id, UserProfile userProfile) {
+        //63, 12, 9, 3, 5, 4, 2
+        long startTime = System.currentTimeMillis();
+
         UserProfile updatedUserProfile = userProfileRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User profile with id: " + id + " not found"));
 
@@ -67,11 +70,20 @@ public class UserProfileService {
             updatedUserProfile.setWeatherApiKey(userProfile.getWeatherApiKey());
         }
 
-        return userProfileRepository.save(updatedUserProfile);
+        UserProfile savedUserProfile = userProfileRepository.save(updatedUserProfile);
+
+        long endTime = System.currentTimeMillis();
+        long duration = endTime - startTime;
+        System.out.println(duration);
+
+        return savedUserProfile;
     }
 
     @Transactional
     public UserProfile updateUserProfile2(Long id, UserProfile userProfile) {
+        //68, 17, 6, 6, 6, 4
+        long startTime = System.currentTimeMillis();
+
         userProfileRepository.updateUserProfile(
                 id,
                 userProfile.getEmail(),
@@ -79,6 +91,12 @@ public class UserProfileService {
                 userProfile.getWeatherApiKey()
         );
 
-        return userProfileRepository.findById(id).orElseThrow(() -> new RuntimeException("User profile with id: " + id + " not found"));
+        UserProfile savedUserProfile = userProfileRepository.findById(id).orElseThrow(() -> new RuntimeException("User profile with id: " + id + " not found"));
+
+        long endTime = System.currentTimeMillis();
+        long duration = endTime - startTime;
+        System.out.println(duration);
+
+        return savedUserProfile;
     }
 }
