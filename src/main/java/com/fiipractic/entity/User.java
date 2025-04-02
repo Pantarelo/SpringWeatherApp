@@ -44,20 +44,22 @@ public class User {
         this.password = password;
     }
 
+    public void setUserProfile(UserProfile userProfile) {this.userProfile = userProfile;}
+
     public long getId() {
-        return id;
+        return this.id;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public String getUsername() {
-        return username;
+        return this.username;
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
 }

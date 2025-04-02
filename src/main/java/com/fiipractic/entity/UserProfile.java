@@ -39,18 +39,18 @@ public class UserProfile {
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public boolean getEmailNotification() {
-        return emailNotification;
+        return this.emailNotification;
     }
 
     public String getWeatherApiKey() {
-        return weatherApiKey;
+        return this.weatherApiKey;
     }
 
     public User getUser() {
-        return user;
+        return this.user;
     }
 }

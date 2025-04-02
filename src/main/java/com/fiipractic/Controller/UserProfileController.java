@@ -10,7 +10,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/user-profile")
 public class UserProfileController {
-    private UserProfileService userProfileService;
+    private final UserProfileService userProfileService;
 
     public UserProfileController(UserProfileService userProfileService) {
         this.userProfileService = userProfileService;
@@ -27,5 +27,11 @@ public class UserProfileController {
         Optional<UserProfile> userProfile = userProfileService.getUserProfileById(id);
 
         return userProfile.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteUserProfileById(@PathVariable Long id) {
+         userProfileService.deleteUserProfileById(id);
+         return ResponseEntity.noContent().build();
     }
 }
