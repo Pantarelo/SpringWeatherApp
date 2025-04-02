@@ -19,6 +19,7 @@ public class UserProfileController {
     @PostMapping
     public ResponseEntity<UserProfile> createUserProfile(@RequestBody UserProfile userProfile) {
         UserProfile savedUserProfile = userProfileService.createUserProfile(userProfile);
+
         return ResponseEntity.ok(savedUserProfile);
     }
 
@@ -32,6 +33,14 @@ public class UserProfileController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUserProfileById(@PathVariable Long id) {
          userProfileService.deleteUserProfileById(id);
+
          return ResponseEntity.noContent().build();
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<UserProfile> updateUserProfile(@PathVariable Long id, @RequestBody UserProfile updateProfile) {
+        UserProfile userProfile = userProfileService.updateUserProfile2(id, updateProfile);
+
+        return ResponseEntity.ok(userProfile);
     }
 }

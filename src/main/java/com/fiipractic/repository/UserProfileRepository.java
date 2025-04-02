@@ -19,4 +19,18 @@ public interface UserProfileRepository extends JpaRepository<UserProfile, Long> 
     @Transactional
     @Query("DELETE FROM UserProfile u WHERE u.id = :id")
     void deleteById(@Param("id") Long id);
+
+    @Modifying
+    @Transactional
+    @Query("UPDATE UserProfile u SET " +
+            "u.email = COALESCE(:email, u.email), " +
+            "u.emailNotification = COALESCE(:emailNotification, u.emailNotification), " +
+            "u.weatherApiKey = COALESCE(:weatherApiKey, u.weatherApiKey) " +
+            "WHERE u.id = :id")
+    void updateUserProfile(
+            @Param("id") Long id,
+            @Param("email") String email,
+            @Param("emailNotification") Boolean emailNotification,
+            @Param("weatherApiKey") String weatherApiKey
+    );
 }

@@ -51,4 +51,34 @@ public class UserProfileService {
 
         userProfileRepository.deleteById(id);
     }
+
+    @Transactional
+    public UserProfile updateUserProfile1(Long id, UserProfile userProfile) {
+        UserProfile updatedUserProfile = userProfileRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User profile with id: " + id + " not found"));
+
+        if (userProfile.getEmail() != null) {
+            updatedUserProfile.setEmail(userProfile.getEmail());
+        }
+        if (userProfile.getEmailNotification() != null) {
+            updatedUserProfile.setEmailNotification(userProfile.getEmailNotification());
+        }
+        if (userProfile.getWeatherApiKey() != null) {
+            updatedUserProfile.setWeatherApiKey(userProfile.getWeatherApiKey());
+        }
+
+        return userProfileRepository.save(updatedUserProfile);
+    }
+
+    @Transactional
+    public UserProfile updateUserProfile2(Long id, UserProfile userProfile) {
+        userProfileRepository.updateUserProfile(
+                id,
+                userProfile.getEmail(),
+                userProfile.getEmailNotification(),
+                userProfile.getWeatherApiKey()
+        );
+
+        return userProfileRepository.findById(id).orElseThrow(() -> new RuntimeException("User profile with id: " + id + " not found"));
+    }
 }

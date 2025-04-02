@@ -13,7 +13,7 @@ public class UserProfile {
     private String email;
 
     @Column(nullable = false)
-    private boolean emailNotification;
+    private Boolean emailNotification;
 
     @Column(nullable = false)
     private String weatherApiKey;
@@ -26,7 +26,7 @@ public class UserProfile {
         this.email = email;
     }
 
-    public void setEmailNotification(boolean emailNotification) {
+    public void setEmailNotification(Boolean emailNotification) {
         this.emailNotification = emailNotification;
     }
 
@@ -42,7 +42,7 @@ public class UserProfile {
         return this.email;
     }
 
-    public boolean getEmailNotification() {
+    public Boolean getEmailNotification() {
         return this.emailNotification;
     }
 
