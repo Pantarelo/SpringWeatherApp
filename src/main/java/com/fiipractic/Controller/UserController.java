@@ -2,7 +2,6 @@ package com.fiipractic.controller;
 
 import com.fiipractic.entity.User;
 import com.fiipractic.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,7 +11,6 @@ import java.util.Optional;
 @RequestMapping("/user")
 public class UserController {
     private final UserService userService;
-    
     public UserController(UserService userService) {
         this.userService = userService;
     }

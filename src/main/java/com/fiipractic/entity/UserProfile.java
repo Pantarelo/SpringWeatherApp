@@ -21,4 +21,36 @@ public class UserProfile {
     @OneToOne
     @JoinColumn(name = "user_id", nullable = false, unique = true)
     private User user;
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setEmailNotification(boolean emailNotification) {
+        this.emailNotification = emailNotification;
+    }
+
+    public void setWeatherApiKey(String weatherApiKey) {
+        this.weatherApiKey = weatherApiKey;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public boolean getEmailNotification() {
+        return emailNotification;
+    }
+
+    public String getWeatherApiKey() {
+        return weatherApiKey;
+    }
+
+    public User getUser() {
+        return user;
+    }
 }

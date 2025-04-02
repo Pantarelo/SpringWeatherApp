@@ -7,10 +7,10 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class InitAppConfig {
-    @Bean
-    CommandLineRunner initUser(UserService userService) {
-        return args -> {
-            userService.createUser("Andrei", "AndreiSeJoaca34", "password123");
-        };
-    }
+//    @Bean
+//    CommandLineRunner initUser(UserService userService) {
+//        return args -> {
+//            userService.createUser("Andrei", "AndreiSeJoaca34", "password123");
+//        };
+//    }
 }
