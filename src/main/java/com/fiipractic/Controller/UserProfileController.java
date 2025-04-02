@@ -5,6 +5,8 @@ import com.fiipractic.service.UserProfileService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/user-profile")
 public class UserProfileController {
@@ -18,5 +20,12 @@ public class UserProfileController {
     public ResponseEntity<UserProfile> createUserProfile(@RequestBody UserProfile userProfile) {
         UserProfile savedUserProfile = userProfileService.createUserProfile(userProfile);
         return ResponseEntity.ok(savedUserProfile);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<UserProfile> getUserProfileById(@PathVariable Long id) {
+        Optional<UserProfile> userProfile = userProfileService.getUserProfileById(id);
+
+        return userProfile.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 }

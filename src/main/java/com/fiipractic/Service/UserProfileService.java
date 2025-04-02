@@ -28,4 +28,8 @@ public class UserProfileService {
         userProfile.setUser(user.get());
         return userProfileRepository.save(userProfile);
     }
+
+    public Optional<UserProfile> getUserProfileById(Long id) {
+        return userProfileRepository.findById(id);
+    }
 }
