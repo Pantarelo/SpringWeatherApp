@@ -20,13 +20,16 @@ public class UserProfileService {
     }
 
     public UserProfile createUserProfile(UserProfile userProfile) {
-        Optional<User> user = userRepository.findById(userProfile.getUser().getId());
+        Optional<User> userOptional = userRepository.findById(userProfile.getUser().getId());
 
-        if (user.isEmpty()) {
+        if (userOptional.isEmpty()) {
             throw new RuntimeException("User with id: " + userProfile.getUser().getId() + " does not exist");
         }
+        User user = userOptional.get();
 
-        userProfile.setUser(user.get());
+        userProfile.setUser(user);
+
+        userRepository.save(user);
         return userProfileRepository.save(userProfile);
     }
 

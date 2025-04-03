@@ -1,5 +1,6 @@
 package com.fiipractic.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 
@@ -26,6 +27,7 @@ public class User {
     private UserProfile userProfile;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonIgnore
     private Set<RequestHistory> requestHistories;
 
     public void setId(long id) {
@@ -46,6 +48,8 @@ public class User {
 
     public void setUserProfile(UserProfile userProfile) {this.userProfile = userProfile;}
 
+    public void setRequestHistories(Set<RequestHistory> requestHistories) {this.requestHistories = requestHistories;}
+
     public long getId() {
         return this.id;
     }
@@ -62,4 +66,7 @@ public class User {
         return this.password;
     }
 
+    public Set<RequestHistory> getRequestHistories() {
+        return this.requestHistories;
+    }
 }

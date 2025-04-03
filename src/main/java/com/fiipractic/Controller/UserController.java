@@ -24,6 +24,11 @@ public class UserController {
     @GetMapping("/{username}")
     public ResponseEntity<User> getUser(@PathVariable String username) {
         Optional<User> user = userService.getUser(username);
+
+        if (user.isEmpty()) {
+            throw new RuntimeException("User with id: " + user.get().getId() + " not found");
+        }
+
         return user.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
