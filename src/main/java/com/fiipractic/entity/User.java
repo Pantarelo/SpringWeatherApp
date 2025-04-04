@@ -69,4 +69,8 @@ public class User {
     public Set<RequestHistory> getRequestHistories() {
         return this.requestHistories;
     }
+
+    public UserProfile getUserProfile() {
+        return userProfile;
+    }
 }

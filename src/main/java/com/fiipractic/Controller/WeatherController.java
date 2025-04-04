@@ -19,9 +19,7 @@ public class WeatherController {
     }
 
     @GetMapping("/details")
-    public WeatherApiResponse getWeatherByLatAndLot(@RequestParam double lat, @RequestParam double lon) {
-        return weatherService.getWeatherByLatAndLon(lat, lon);
+    public WeatherApiResponse getWeatherByLatAndLot(@RequestParam double lat, @RequestParam double lon, @RequestParam Long userId) {
+        return weatherService.getWeatherByLatAndLon(userId, lat, lon);
     }
-
-
 }
