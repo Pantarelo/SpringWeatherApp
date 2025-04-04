@@ -3,10 +3,7 @@ package com.fiipractic.controller;
 import com.fiipractic.DTO.WeatherApiResponse;
 import com.fiipractic.service.WeatherService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/weather")
@@ -18,8 +15,8 @@ public class WeatherController {
         this.weatherService = weatherService;
     }
 
-    @GetMapping("/details")
-    public WeatherApiResponse getWeatherByLatAndLot(@RequestParam double lat, @RequestParam double lon, @RequestParam Long userId) {
+    @GetMapping("/{userId}")
+    public WeatherApiResponse getWeatherByLatAndLot(@PathVariable Long userId, @RequestParam double lat, @RequestParam double lon) {
         return weatherService.getWeatherByLatAndLon(userId, lat, lon);
     }
 }
