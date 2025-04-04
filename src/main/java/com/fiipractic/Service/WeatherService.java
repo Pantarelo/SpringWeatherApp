@@ -16,17 +16,19 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class WeatherService {
 //    @Value("${api.weather.key}")
-    private String apiWeatherKey;
+//    private String apiWeatherKey;
     private final RestTemplate restTemplate;
     private final UserRepository userRepository;
     private final RequestHistoryRepository requestHistoryRepository;
-    private ObjectMapper objectMapper;
+    private final ObjectMapper objectMapper;
+    private final EmailService emailService;
 
-    public WeatherService(RestTemplate restTemplate, UserRepository userRepository, RequestHistoryRepository requestHistoryRepository, ObjectMapper objectMapper) {
+    public WeatherService(RestTemplate restTemplate, UserRepository userRepository, RequestHistoryRepository requestHistoryRepository, ObjectMapper objectMapper, EmailService emailService) {
         this.restTemplate = restTemplate;
         this.userRepository = userRepository;
         this.requestHistoryRepository = requestHistoryRepository;
         this.objectMapper = objectMapper;
+        this.emailService = emailService;
     }
 
     public WeatherApiResponse getWeatherByLatAndLon(Long userId, double lat, double lon) {
@@ -39,16 +41,22 @@ public class WeatherService {
         }
 
         String apiKey = profile.getWeatherApiKey();
-
         String url = "http://api.weatherapi.com/v1/current.json?key=" + apiKey +
                 "&q=" + lat + "," + lon + "&aqi=no";
 
         try {
             WeatherApiResponse response = restTemplate.getForObject(url, WeatherApiResponse.class);
+
             String jsonResponse = objectMapper.writeValueAsString(response);
-            System.out.println(jsonResponse);
 
             saveRequestHistory(user, lat, lon, jsonResponse);
+
+            if (profile.getEmailNotification()) {
+                String subject = "Your Weather Report";
+                String emailBody = "Here is your weather data:\n\n" + jsonResponse;
+
+                emailService.sendWeatherEmail(profile.getEmail(), subject, emailBody);
+            }
 
             return response;
         } catch (HttpClientErrorException e) {
