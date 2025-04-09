@@ -23,7 +23,10 @@ public class WeatherService {
     private final ObjectMapper objectMapper;
     private final EmailService emailService;
 
-    public WeatherService(RestTemplate restTemplate, UserRepository userRepository, RequestHistoryRepository requestHistoryRepository, ObjectMapper objectMapper, EmailService emailService) {
+    public WeatherService(RestTemplate restTemplate,
+                          UserRepository userRepository,
+                          RequestHistoryRepository requestHistoryRepository,
+                          ObjectMapper objectMapper, EmailService emailService) {
         this.restTemplate = restTemplate;
         this.userRepository = userRepository;
         this.requestHistoryRepository = requestHistoryRepository;

@@ -1,8 +1,14 @@
 package com.fiipractic.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 public class UserProfile {
     @Id
     @Column(nullable = false)
@@ -21,36 +27,4 @@ public class UserProfile {
     @OneToOne
     @JoinColumn(name = "user_id", nullable = false, unique = true)
     private User user;
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setEmailNotification(Boolean emailNotification) {
-        this.emailNotification = emailNotification;
-    }
-
-    public void setWeatherApiKey(String weatherApiKey) {
-        this.weatherApiKey = weatherApiKey;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public String getEmail() {
-        return this.email;
-    }
-
-    public Boolean getEmailNotification() {
-        return this.emailNotification;
-    }
-
-    public String getWeatherApiKey() {
-        return this.weatherApiKey;
-    }
-
-    public User getUser() {
-        return this.user;
-    }
 }

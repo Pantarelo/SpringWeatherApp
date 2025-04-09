@@ -3,11 +3,16 @@ package com.fiipractic.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Set;
 
 @Entity
 @Table(name = "users")
+@Getter
+@Setter
+@NoArgsConstructor
 public class User {
     @Id
     @Column(nullable = false)
@@ -29,48 +34,4 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<RequestHistory> requestHistories;
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setUserProfile(UserProfile userProfile) {this.userProfile = userProfile;}
-
-    public void setRequestHistories(Set<RequestHistory> requestHistories) {this.requestHistories = requestHistories;}
-
-    public long getId() {
-        return this.id;
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public String getUsername() {
-        return this.username;
-    }
-
-    public String getPassword() {
-        return this.password;
-    }
-
-    public Set<RequestHistory> getRequestHistories() {
-        return this.requestHistories;
-    }
-
-    public UserProfile getUserProfile() {
-        return userProfile;
-    }
 }

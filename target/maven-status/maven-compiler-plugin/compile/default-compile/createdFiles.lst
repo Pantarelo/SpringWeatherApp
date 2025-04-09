@@ -14,6 +14,7 @@ com/fiipractic/repository/UserRepository.class
 com/fiipractic/entity/User.class
 com/fiipractic/service/EmailService.class
 com/fiipractic/service/UserService.class
+com/fiipractic/configuration/JwtAuthenticationFilter.class
 com/fiipractic/configuration/InitAppConfig.class
 com/fiipractic/service/UserProfileService.class
 com/fiipractic/FiipracticApplication.class
