@@ -3,6 +3,7 @@ package com.fiipractic.controller;
 import com.fiipractic.entity.User;
 import com.fiipractic.service.UserService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -23,10 +24,12 @@ public class UserController {
 
     @GetMapping("/{username}")
     public ResponseEntity<User> getUser(@PathVariable String username) {
+        System.out.println("Principal: " + SecurityContextHolder.getContext().getAuthentication());
+
         Optional<User> user = userService.getUser(username);
 
         if (user.isEmpty()) {
-            throw new RuntimeException("User with id: " + user.get().getId() + " not found");
+            throw new RuntimeException("User with username: " + username + " not found");
         }
 
         return user.map(ResponseEntity::ok)

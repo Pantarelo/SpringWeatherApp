@@ -7,7 +7,6 @@
 /Users/pantarelo/Desktop/fiipractic/src/main/java/com/fiipractic/DTO/LocationDTO.java
 /Users/pantarelo/Desktop/fiipractic/src/main/java/com/fiipractic/service/UserService.java
 /Users/pantarelo/Desktop/fiipractic/src/main/java/com/fiipractic/DTO/WeatherApiResponse.java
-/Users/pantarelo/Desktop/fiipractic/src/main/java/com/fiipractic/configuration/JwtAuthenticationFilter.java
 /Users/pantarelo/Desktop/fiipractic/src/main/java/com/fiipractic/configuration/AppConfig.java
 /Users/pantarelo/Desktop/fiipractic/src/main/java/com/fiipractic/controller/UserController.java
 /Users/pantarelo/Desktop/fiipractic/src/main/java/com/fiipractic/service/RequestHistoryService.java
@@ -16,6 +15,7 @@
 /Users/pantarelo/Desktop/fiipractic/src/main/java/com/fiipractic/controller/WeatherController.java
 /Users/pantarelo/Desktop/fiipractic/src/main/java/com/fiipractic/service/EmailService.java
 /Users/pantarelo/Desktop/fiipractic/src/main/java/com/fiipractic/FiipracticApplication.java
+/Users/pantarelo/Desktop/fiipractic/src/main/java/com/fiipractic/configuration/jwt/JwtAuthenticationFilter.java
 /Users/pantarelo/Desktop/fiipractic/src/main/java/com/fiipractic/repository/UserRepository.java
 /Users/pantarelo/Desktop/fiipractic/src/main/java/com/fiipractic/service/WeatherService.java
 /Users/pantarelo/Desktop/fiipractic/src/main/java/com/fiipractic/entity/RequestHistory.java

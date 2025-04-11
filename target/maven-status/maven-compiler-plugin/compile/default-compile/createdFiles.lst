@@ -5,6 +5,7 @@ com/fiipractic/repository/RequestHistoryRepository.class
 com/fiipractic/configuration/SecurityConfig.class
 com/fiipractic/DTO/LocationDTO.class
 com/fiipractic/configuration/AppConfig.class
+com/fiipractic/configuration/jwt/JwtAuthenticationFilter.class
 com/fiipractic/service/RequestHistoryService.class
 com/fiipractic/repository/UserProfileRepository.class
 com/fiipractic/controller/UserProfileController.class
@@ -14,7 +15,6 @@ com/fiipractic/repository/UserRepository.class
 com/fiipractic/entity/User.class
 com/fiipractic/service/EmailService.class
 com/fiipractic/service/UserService.class
-com/fiipractic/configuration/JwtAuthenticationFilter.class
 com/fiipractic/configuration/InitAppConfig.class
 com/fiipractic/service/UserProfileService.class
 com/fiipractic/FiipracticApplication.class
